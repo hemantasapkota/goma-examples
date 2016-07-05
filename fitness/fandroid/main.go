@@ -1,8 +1,8 @@
 package fandroid
 
 import (
-	goma "goma"
-	app "goma/examples/fitness_app/app"
+	goma "github.com/hemantasapkota/goma"
+	app "goma-examples/fitness/app"
 )
 
 func Init(dbPath string) error {
