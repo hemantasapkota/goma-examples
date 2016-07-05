@@ -1,12 +1,17 @@
 package app
 
 import (
-	goma "goma"
-	ldb "goma/gomadb/leveldb"
+	goma "github.com/hemantasapkota/goma"
+	gomadb "github.com/hemantasapkota/goma/gomadb"
+	ldb "github.com/hemantasapkota/goma/gomadb/leveldb"
 )
 
 func Init(dbPath string) error {
 	goma.NewLogger()
-	_, err := ldb.InitDB(dbPath)
-	return err
+	db, err := ldb.InitDB(dbPath)
+	if err != nil {
+		return err
+	}
+	gomadb.SetLevelDB(db)
+	return nil
 }

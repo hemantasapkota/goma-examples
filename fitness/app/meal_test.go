@@ -1,7 +1,7 @@
 package app
 
 import (
-	"goma"
+	goma "github.com/hemantasapkota/goma"
 	"testing"
 	"time"
 )
