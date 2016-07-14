@@ -50,7 +50,8 @@
                 android:text="Medium Text"
                 android:id="@+id/txtDescription"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="false" />
+                android:layout_alignParentStart="false"
+                android:typeface="serif" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -59,7 +60,8 @@
                 android:text="Medium Text"
                 android:id="@+id/txtCalories"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="false" />
+                android:layout_alignParentEnd="false"
+                android:typeface="serif" />
         </RelativeLayout>
 
     </RelativeLayout>
