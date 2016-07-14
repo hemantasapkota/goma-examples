@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/hemantasapkota/goma"
+	"math"
 	"sort"
 	"strconv"
 	"strings"
@@ -191,7 +192,7 @@ func AddNewMeal(timestamp string, description string, calories string, unit stri
 	item := MealItem{
 		Timestamp:   timestamp,
 		Description: description,
-		Calories:    cals,
+		Calories:    math.Ceil(cals),
 	}
 
 	meal.Children = append(meal.Children, item)
