@@ -9,8 +9,8 @@ func Init(dbPath string) error {
 	return app.Init(dbPath)
 }
 
-func AddNewMeal(description string, calories string) error {
-	_, err := app.AddNewMeal(goma.Timestamp(), description, calories)
+func AddNewMeal(description string, calories string, unit string) error {
+	_, err := app.AddNewMeal(goma.Timestamp(), description, calories, unit)
 	return err
 }
 

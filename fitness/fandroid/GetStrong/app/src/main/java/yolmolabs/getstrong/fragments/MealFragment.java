@@ -14,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -187,12 +189,14 @@ public class MealFragment extends Fragment {
                             public Object call() throws Exception {
                                 EditText descTxt = (EditText) d.getCustomView().findViewById(R.id.txtDescription);
                                 EditText caloriesTxt = (EditText) d.getCustomView().findViewById(R.id.txtCalories);
+                                Spinner caloricUnitList = (Spinner) d.getCustomView().findViewById(R.id.listCaloricUnit);
 
                                 String description = descTxt.getText().toString();
                                 String calories = caloriesTxt.getText().toString();
+                                String unit = caloricUnitList.getSelectedItem().toString();
 
                                 if (id.isEmpty()) {
-                                    Fandroid.AddNewMeal(description, calories);
+                                    Fandroid.AddNewMeal(description, calories, unit);
                                 } else {
                                     Fandroid.UpdateMeal(id, description, calories);
                                 }
@@ -224,6 +228,14 @@ public class MealFragment extends Fragment {
 
         EditText descTxt = (EditText) d.findViewById(R.id.txtDescription);
         EditText caloriesTxt = (EditText) d.findViewById(R.id.txtCalories);
+
+        Spinner listCaloricUnit = (Spinner) d.findViewById(R.id.listCaloricUnit);
+
+        ArrayAdapter<String> units = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1);
+        units.add("Kilocalories");
+        units.add("Kilojoules");
+
+        listCaloricUnit.setAdapter(units);
 
         descTxt.setText(desc);
         caloriesTxt.setText(calories);

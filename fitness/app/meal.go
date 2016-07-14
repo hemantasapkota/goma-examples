@@ -9,6 +9,10 @@ import (
 	"strings"
 )
 
+const (
+	KJ_TO_KCAL_FACTOR = 0.239
+)
+
 type MealList []MealItem
 
 type MealItem struct {
@@ -145,7 +149,7 @@ func EmptyMealContainer() *Meal {
 	return &Meal{Children: make([]MealItem, 0)}
 }
 
-func AddNewMeal(timestamp string, description string, calories string) (*MealItem, error) {
+func AddNewMeal(timestamp string, description string, calories string, unit string) (*MealItem, error) {
 	if strings.TrimSpace(description) == "" {
 		return nil, errors.New("Please add a description of the meal.")
 	}
@@ -176,6 +180,10 @@ func AddNewMeal(timestamp string, description string, calories string) (*MealIte
 	cals, err := parseFormula(calories)
 	if err != nil {
 		return nil, err
+	}
+
+	if unit == "Kilojoules" {
+		cals = cals * KJ_TO_KCAL_FACTOR
 	}
 
 	meal := goma.GetAppCache().Get(EmptyMealContainer()).(*Meal)
