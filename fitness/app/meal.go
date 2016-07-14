@@ -3,7 +3,7 @@ package app
 import (
 	"errors"
 	"fmt"
-	"goma"
+	"github.com/hemantasapkota/goma"
 	"sort"
 	"strconv"
 	"strings"
@@ -154,7 +154,26 @@ func AddNewMeal(timestamp string, description string, calories string) (*MealIte
 		return nil, errors.New("Calories cannot be empty.")
 	}
 
-	cals, err := strconv.ParseFloat(calories, 64)
+	parseFormula := func(formula string) (float64, error) {
+		if string(formula[0]) != "=" {
+			return strconv.ParseFloat(formula, 64)
+		}
+
+		sum := 0.0
+		components := strings.Split(formula[1:], "+")
+
+		for _, cal := range components {
+			calorie, err := strconv.ParseFloat(strings.TrimSpace(cal), 64)
+			if err != nil {
+				continue
+			}
+			sum += calorie
+		}
+
+		return sum, nil
+	}
+
+	cals, err := parseFormula(calories)
 	if err != nil {
 		return nil, err
 	}
