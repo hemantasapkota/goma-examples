@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        curFragment = new WorkoutFragment();
+        curFragment = new MealFragment();
         updateFragment();
     }
 
@@ -110,10 +110,12 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_meals) {
             curFragment = new MealFragment();
             updateFragment();
-        } else if (id == R.id.nav_workout) {
-            curFragment = new WorkoutFragment();
-            updateFragment();
         }
+
+//        else if (id == R.id.nav_workout) {
+//            curFragment = new WorkoutFragment();
+//            updateFragment();
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

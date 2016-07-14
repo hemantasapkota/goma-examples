@@ -4,15 +4,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_meals"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_plus_white"
             android:title="Meals" />
-        <item
-            android:id="@+id/nav_workout"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Workouts" />
+        <!--<item-->
+            <!--android:id="@+id/nav_workout"-->
+            <!--android:icon="@drawable/ic_menu_gallery"-->
+            <!--android:title="Workouts" />-->
     </group>
 
-    <item android:title="Settings">
+    <!--<item android:title="Settings">-->
         <!--<menu>-->
             <!--<item-->
                 <!--android:id="@+id/nav_share"-->
@@ -23,6 +23,6 @@
                 <!--android:icon="@drawable/ic_menu_send"-->
                 <!--android:title="Send" />-->
         <!--</menu>-->
-    </item>
+    <!--</item>-->
 
 </menu>
