@@ -52,7 +52,7 @@ public class MealFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setTitle("Track your meals");
+        getActivity().setTitle("Track your meals and workouts");
     }
 
     @Nullable

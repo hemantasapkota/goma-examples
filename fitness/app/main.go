@@ -7,7 +7,7 @@ import (
 )
 
 func Init(dbPath string) error {
-	goma.NewLogger()
+	goma.NewLogger(goma.LoggerConfig{Debug: true})
 	db, err := ldb.InitDB(dbPath)
 	if err != nil {
 		return err
