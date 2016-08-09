@@ -29,3 +29,7 @@ func DeleteMeal(id string) error {
 func TotalCaloriesByGroup(groupName string) string {
 	return app.TotalCaloriesByGroup(groupName)
 }
+
+func GetUnits() ([]byte, error) {
+	return goma.Marshal(app.GetUnits())
+}
