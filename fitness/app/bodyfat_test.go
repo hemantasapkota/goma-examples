@@ -5,22 +5,19 @@ import (
 )
 
 func TestBodyFat(t *testing.T) {
-	bf1, err := BodyFat{}.Compute(BodyFatInput{metric: "cm", gender: "male", height: 179, neck: 39, waist: 89, hip: 0})
-	if err != nil {
-		t.Log(err)
-		return
-	}
+	//male, cm
+	bfM, _ := BodyFat{}.Compute(BodyFatInput{metric: "cm", gender: "male", height: 179, neck: 39, waist: 89, hip: 0})
+	t.Log(bfM, "%")
 
-	if bf1 != 19 {
-		t.Log("Expected 19 percent but got ", bf1, "%")
-	}
+	//female, cm
+	bfX, _ := BodyFat{}.Compute(BodyFatInput{metric: "cm", gender: "female", height: 179, neck: 39, waist: 89, hip: 97})
+	t.Log(bfX, "%")
 
-	t.Log(bf1)
+	//male, inchesj
+	bfM, _ = BodyFat{}.Compute(BodyFatInput{metric: "inches", gender: "male", height: 70, neck: 15, waist: 35, hip: 0})
+	t.Log(bfM, "%")
 
-	bf1 = 0
-
-	bf1, err = BodyFat{}.Compute(BodyFatInput{metric: "inches", gender: "male", height: 70, neck: 15, waist: 35, hip: 0})
-	if bf1 != 19 {
-		t.Log("Expected 19 percent but got %", bf1)
-	}
+	//female, inches
+	bfX, _ = BodyFat{}.Compute(BodyFatInput{metric: "inches", gender: "female", height: 70, neck: 15, waist: 35, hip: 38})
+	t.Log(bfX, "%")
 }
