@@ -229,7 +229,7 @@ public class MealFragment extends Fragment {
         EditText descTxt = (EditText) d.findViewById(R.id.txtDescription);
         EditText caloriesTxt = (EditText) d.findViewById(R.id.txtCalories);
 
-        Spinner listCaloricUnit = (Spinner) d.findViewById(R.id.listCaloricUnit);
+        final Spinner listCaloricUnit = (Spinner) d.findViewById(R.id.listCaloricUnit);
 
         final ArrayAdapter<String> units = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1);
 
@@ -252,11 +252,10 @@ public class MealFragment extends Fragment {
         }).continueWith(new Continuation<Object, Object>() {
             @Override
             public Object then(Task<Object> task) throws Exception {
+                listCaloricUnit.setAdapter(units);
                 return null;
             }
         }, Task.UI_THREAD_EXECUTOR);
-
-        listCaloricUnit.setAdapter(units);
 
         descTxt.setText(desc);
         caloriesTxt.setText(calories);

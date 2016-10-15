@@ -4,18 +4,6 @@ import (
 	goma "github.com/hemantasapkota/goma"
 )
 
-type WorkoutScheme struct {
-	*goma.Object
-
-	Name string `json:"name"`
-	Sets string `json:"sets"`
-	Reps string `json:"reps"`
-}
-
-func (w WorkoutScheme) Key() string {
-	return "fitnessApp.workoutScheme"
-}
-
 type Workout struct {
 	*goma.Object
 
