@@ -3,15 +3,12 @@ package app
 import (
 	"errors"
 	"fmt"
-	"github.com/hemantasapkota/goma"
 	"math"
 	"sort"
 	"strconv"
 	"strings"
-)
 
-const (
-	KJ_TO_KCAL_FACTOR = 0.239
+	"github.com/hemantasapkota/goma"
 )
 
 type MealList []MealItem
