@@ -1,6 +1,6 @@
 # goma-examples
 Example apps for GOMA
 
-# Categories #
+# Fitness #
 
-* [Fitness](./fitness)
+* [Meal Tracker](https://github.com/hemantasapkota/goma-examples/tree/master/fitness)
