@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2ED777821DB2657C0037361B"
-               BuildableName = "KetoCalculator.app"
-               BlueprintName = "KetoCalculator"
-               ReferencedContainer = "container:KetoCalculator.xcodeproj">
+               BuildableName = "BodyfatCalculator.app"
+               BlueprintName = "BodyfatCalculator"
+               ReferencedContainer = "container:BodyfatCalculator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2ED777821DB2657C0037361B"
-            BuildableName = "KetoCalculator.app"
-            BlueprintName = "KetoCalculator"
-            ReferencedContainer = "container:KetoCalculator.xcodeproj">
+            BuildableName = "BodyfatCalculator.app"
+            BlueprintName = "BodyfatCalculator"
+            ReferencedContainer = "container:BodyfatCalculator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2ED777821DB2657C0037361B"
-            BuildableName = "KetoCalculator.app"
-            BlueprintName = "KetoCalculator"
-            ReferencedContainer = "container:KetoCalculator.xcodeproj">
+            BuildableName = "BodyfatCalculator.app"
+            BlueprintName = "BodyfatCalculator"
+            ReferencedContainer = "container:BodyfatCalculator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2ED777821DB2657C0037361B"
-            BuildableName = "KetoCalculator.app"
-            BlueprintName = "KetoCalculator"
-            ReferencedContainer = "container:KetoCalculator.xcodeproj">
+            BuildableName = "BodyfatCalculator.app"
+            BlueprintName = "BodyfatCalculator"
+            ReferencedContainer = "container:BodyfatCalculator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

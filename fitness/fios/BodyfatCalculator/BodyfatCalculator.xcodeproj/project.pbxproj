@@ -7,21 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2ED777871DB2657C0037361B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED777861DB2657C0037361B /* AppDelegate.swift */; };
-		2ED777891DB2657C0037361B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED777881DB2657C0037361B /* ViewController.swift */; };
-		2ED7778C1DB2657C0037361B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED7778A1DB2657C0037361B /* Main.storyboard */; };
-		2ED7778E1DB2657C0037361B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED7778D1DB2657C0037361B /* Assets.xcassets */; };
-		2ED777911DB2657C0037361B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED7778F1DB2657C0037361B /* LaunchScreen.storyboard */; };
+		2ED021111DB4B48500E55053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED021091DB4B48500E55053 /* AppDelegate.swift */; };
+		2ED021121DB4B48500E55053 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0210A1DB4B48500E55053 /* Assets.xcassets */; };
+		2ED021131DB4B48500E55053 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0210B1DB4B48500E55053 /* LaunchScreen.storyboard */; };
+		2ED021141DB4B48500E55053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0210D1DB4B48500E55053 /* Main.storyboard */; };
+		2ED021151DB4B48500E55053 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0210F1DB4B48500E55053 /* Info.plist */; };
+		2ED021161DB4B48500E55053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED021101DB4B48500E55053 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2ED777831DB2657C0037361B /* KetoCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KetoCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2ED777861DB2657C0037361B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2ED777881DB2657C0037361B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2ED7778B1DB2657C0037361B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2ED7778D1DB2657C0037361B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2ED777901DB2657C0037361B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2ED777921DB2657C0037361B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ED021091DB4B48500E55053 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2ED0210A1DB4B48500E55053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2ED0210C1DB4B48500E55053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2ED0210E1DB4B48500E55053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2ED0210F1DB4B48500E55053 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ED021101DB4B48500E55053 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2ED777831DB2657C0037361B /* BodyfatCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyfatCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,10 +36,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2ED021081DB4B48500E55053 /* BodyfatCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				2ED021091DB4B48500E55053 /* AppDelegate.swift */,
+				2ED0210A1DB4B48500E55053 /* Assets.xcassets */,
+				2ED0210B1DB4B48500E55053 /* LaunchScreen.storyboard */,
+				2ED0210D1DB4B48500E55053 /* Main.storyboard */,
+				2ED0210F1DB4B48500E55053 /* Info.plist */,
+				2ED021101DB4B48500E55053 /* ViewController.swift */,
+			);
+			path = BodyfatCalculator;
+			sourceTree = "<group>";
+		};
 		2ED7777A1DB2657B0037361B = {
 			isa = PBXGroup;
 			children = (
-				2ED777851DB2657C0037361B /* KetoCalculator */,
+				2ED021081DB4B48500E55053 /* BodyfatCalculator */,
 				2ED777841DB2657C0037361B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,30 +60,17 @@
 		2ED777841DB2657C0037361B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2ED777831DB2657C0037361B /* KetoCalculator.app */,
+				2ED777831DB2657C0037361B /* BodyfatCalculator.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2ED777851DB2657C0037361B /* KetoCalculator */ = {
-			isa = PBXGroup;
-			children = (
-				2ED777861DB2657C0037361B /* AppDelegate.swift */,
-				2ED777881DB2657C0037361B /* ViewController.swift */,
-				2ED7778A1DB2657C0037361B /* Main.storyboard */,
-				2ED7778D1DB2657C0037361B /* Assets.xcassets */,
-				2ED7778F1DB2657C0037361B /* LaunchScreen.storyboard */,
-				2ED777921DB2657C0037361B /* Info.plist */,
-			);
-			path = KetoCalculator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2ED777821DB2657C0037361B /* KetoCalculator */ = {
+		2ED777821DB2657C0037361B /* BodyfatCalculator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2ED777951DB2657C0037361B /* Build configuration list for PBXNativeTarget "KetoCalculator" */;
+			buildConfigurationList = 2ED777951DB2657C0037361B /* Build configuration list for PBXNativeTarget "BodyfatCalculator" */;
 			buildPhases = (
 				2ED7777F1DB2657C0037361B /* Sources */,
 				2ED777801DB2657C0037361B /* Frameworks */,
@@ -79,9 +80,9 @@
 			);
 			dependencies = (
 			);
-			name = KetoCalculator;
+			name = BodyfatCalculator;
 			productName = KetoCalculator;
-			productReference = 2ED777831DB2657C0037361B /* KetoCalculator.app */;
+			productReference = 2ED777831DB2657C0037361B /* BodyfatCalculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +101,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2ED7777E1DB2657B0037361B /* Build configuration list for PBXProject "KetoCalculator" */;
+			buildConfigurationList = 2ED7777E1DB2657B0037361B /* Build configuration list for PBXProject "BodyfatCalculator" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +114,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2ED777821DB2657C0037361B /* KetoCalculator */,
+				2ED777821DB2657C0037361B /* BodyfatCalculator */,
 			);
 		};
 /* End PBXProject section */
@@ -123,9 +124,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ED777911DB2657C0037361B /* LaunchScreen.storyboard in Resources */,
-				2ED7778E1DB2657C0037361B /* Assets.xcassets in Resources */,
-				2ED7778C1DB2657C0037361B /* Main.storyboard in Resources */,
+				2ED021151DB4B48500E55053 /* Info.plist in Resources */,
+				2ED021141DB4B48500E55053 /* Main.storyboard in Resources */,
+				2ED021121DB4B48500E55053 /* Assets.xcassets in Resources */,
+				2ED021131DB4B48500E55053 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,28 +138,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ED777891DB2657C0037361B /* ViewController.swift in Sources */,
-				2ED777871DB2657C0037361B /* AppDelegate.swift in Sources */,
+				2ED021161DB4B48500E55053 /* ViewController.swift in Sources */,
+				2ED021111DB4B48500E55053 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2ED7778A1DB2657C0037361B /* Main.storyboard */ = {
+		2ED0210B1DB4B48500E55053 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2ED7778B1DB2657C0037361B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2ED7778F1DB2657C0037361B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2ED777901DB2657C0037361B /* Base */,
+				2ED0210C1DB4B48500E55053 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2ED0210D1DB4B48500E55053 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2ED0210E1DB4B48500E55053 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -260,7 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = KetoCalculator/Info.plist;
+				INFOPLIST_FILE = BodyfatCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laex.KetoCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,7 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = KetoCalculator/Info.plist;
+				INFOPLIST_FILE = BodyfatCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laex.KetoCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -283,7 +285,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2ED7777E1DB2657B0037361B /* Build configuration list for PBXProject "KetoCalculator" */ = {
+		2ED7777E1DB2657B0037361B /* Build configuration list for PBXProject "BodyfatCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2ED777931DB2657C0037361B /* Debug */,
@@ -292,13 +294,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2ED777951DB2657C0037361B /* Build configuration list for PBXNativeTarget "KetoCalculator" */ = {
+		2ED777951DB2657C0037361B /* Build configuration list for PBXNativeTarget "BodyfatCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2ED777961DB2657C0037361B /* Debug */,
 				2ED777971DB2657C0037361B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
