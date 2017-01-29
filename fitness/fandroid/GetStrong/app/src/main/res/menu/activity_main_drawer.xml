@@ -6,10 +6,12 @@
             android:id="@+id/nav_meals"
             android:icon="@drawable/ic_menu_plus_white"
             android:title="Meals" />
-        <!--<item-->
-            <!--android:id="@+id/nav_workout"-->
-            <!--android:icon="@drawable/ic_menu_gallery"-->
-            <!--android:title="Workouts" />-->
+
+        <item
+            android:id="@+id/nav_workout"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Weight Log" />
+
     </group>
 
     <!--<item android:title="Settings">-->

@@ -156,31 +156,12 @@ func AddNewMeal(timestamp string, description string, calories string, unit stri
 		return nil, errors.New("Calories cannot be empty.")
 	}
 
-	parseFormula := func(formula string) (float64, error) {
-		if string(formula[0]) != "=" {
-			return strconv.ParseFloat(formula, 64)
-		}
-
-		sum := 0.0
-		components := strings.Split(formula[1:], "+")
-
-		for _, cal := range components {
-			calorie, err := strconv.ParseFloat(strings.TrimSpace(cal), 64)
-			if err != nil {
-				continue
-			}
-			sum += calorie
-		}
-
-		return sum, nil
-	}
-
-	cals, err := parseFormula(calories)
+	cals, err := NewFormula(calories).Evaluate()
 	if err != nil {
 		return nil, err
 	}
 
-	if unit == "Kilojoules" {
+	if unit == "KJoules" {
 		cals = cals * KJ_TO_KCAL_FACTOR
 	}
 

@@ -7,19 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1533C31DB67E8500FE26E2 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1533C21DB67E8500FE26E2 /* SnapKit.framework */; };
+		2E15343C1DB7563D00FE26E2 /* GCDTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1534371DB7563D00FE26E2 /* GCDTimer.framework */; };
+		2E15343D1DB7563D00FE26E2 /* MRProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1534381DB7563D00FE26E2 /* MRProgress.framework */; };
+		2E15343E1DB7563D00FE26E2 /* OpenSansSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1534391DB7563D00FE26E2 /* OpenSansSwift.framework */; };
+		2E15343F1DB7563D00FE26E2 /* Spring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E15343A1DB7563D00FE26E2 /* Spring.framework */; };
+		2E1534401DB7563D00FE26E2 /* SwiftListView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E15343B1DB7563D00FE26E2 /* SwiftListView.framework */; };
 		2ED021111DB4B48500E55053 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED021091DB4B48500E55053 /* AppDelegate.swift */; };
 		2ED021121DB4B48500E55053 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0210A1DB4B48500E55053 /* Assets.xcassets */; };
 		2ED021131DB4B48500E55053 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0210B1DB4B48500E55053 /* LaunchScreen.storyboard */; };
-		2ED021141DB4B48500E55053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0210D1DB4B48500E55053 /* Main.storyboard */; };
 		2ED021151DB4B48500E55053 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0210F1DB4B48500E55053 /* Info.plist */; };
 		2ED021161DB4B48500E55053 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED021101DB4B48500E55053 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2EC6DE461DFD423B00E6F519 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EC6DE421DFD423B00E6F519 /* SwiftListViewExample.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E15340C1DB68C3200FE26E2;
+			remoteInfo = SwiftListViewExample;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		2E1533C21DB67E8500FE26E2 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		2E1534371DB7563D00FE26E2 /* GCDTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCDTimer.framework; path = Carthage/Build/iOS/GCDTimer.framework; sourceTree = "<group>"; };
+		2E1534381DB7563D00FE26E2 /* MRProgress.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MRProgress.framework; path = Carthage/Build/iOS/MRProgress.framework; sourceTree = "<group>"; };
+		2E1534391DB7563D00FE26E2 /* OpenSansSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenSansSwift.framework; path = Carthage/Build/iOS/OpenSansSwift.framework; sourceTree = "<group>"; };
+		2E15343A1DB7563D00FE26E2 /* Spring.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spring.framework; path = Carthage/Build/iOS/Spring.framework; sourceTree = "<group>"; };
+		2E15343B1DB7563D00FE26E2 /* SwiftListView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftListView.framework; path = Carthage/Build/iOS/SwiftListView.framework; sourceTree = "<group>"; };
+		2EC6DE421DFD423B00E6F519 /* SwiftListViewExample.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftListViewExample.xcodeproj; path = ../../../../../../Desktop/Projects/OpenLearning/SwiftListView/Example/SwiftListViewExample/SwiftListViewExample.xcodeproj; sourceTree = "<group>"; };
 		2ED021091DB4B48500E55053 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ED0210A1DB4B48500E55053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2ED0210C1DB4B48500E55053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2ED0210E1DB4B48500E55053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2ED0210F1DB4B48500E55053 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ED021101DB4B48500E55053 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2ED777831DB2657C0037361B /* BodyfatCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyfatCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,19 +51,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E15343C1DB7563D00FE26E2 /* GCDTimer.framework in Frameworks */,
+				2E15343D1DB7563D00FE26E2 /* MRProgress.framework in Frameworks */,
+				2E15343E1DB7563D00FE26E2 /* OpenSansSwift.framework in Frameworks */,
+				2E15343F1DB7563D00FE26E2 /* Spring.framework in Frameworks */,
+				2E1534401DB7563D00FE26E2 /* SwiftListView.framework in Frameworks */,
+				2E1533C31DB67E8500FE26E2 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1533C11DB67E8400FE26E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2EC6DE421DFD423B00E6F519 /* SwiftListViewExample.xcodeproj */,
+				2E1534371DB7563D00FE26E2 /* GCDTimer.framework */,
+				2E1534381DB7563D00FE26E2 /* MRProgress.framework */,
+				2E1534391DB7563D00FE26E2 /* OpenSansSwift.framework */,
+				2E15343A1DB7563D00FE26E2 /* Spring.framework */,
+				2E15343B1DB7563D00FE26E2 /* SwiftListView.framework */,
+				2E1533C21DB67E8500FE26E2 /* SnapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2EC6DE431DFD423B00E6F519 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2EC6DE471DFD423B00E6F519 /* SwiftListViewExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2ED021081DB4B48500E55053 /* BodyfatCalculator */ = {
 			isa = PBXGroup;
 			children = (
 				2ED021091DB4B48500E55053 /* AppDelegate.swift */,
 				2ED0210A1DB4B48500E55053 /* Assets.xcassets */,
 				2ED0210B1DB4B48500E55053 /* LaunchScreen.storyboard */,
-				2ED0210D1DB4B48500E55053 /* Main.storyboard */,
 				2ED0210F1DB4B48500E55053 /* Info.plist */,
 				2ED021101DB4B48500E55053 /* ViewController.swift */,
 			);
@@ -54,6 +102,7 @@
 			children = (
 				2ED021081DB4B48500E55053 /* BodyfatCalculator */,
 				2ED777841DB2657C0037361B /* Products */,
+				2E1533C11DB67E8400FE26E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +124,7 @@
 				2ED7777F1DB2657C0037361B /* Sources */,
 				2ED777801DB2657C0037361B /* Frameworks */,
 				2ED777811DB2657C0037361B /* Resources */,
+				2E1533CB1DB67EC500FE26E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -97,6 +147,7 @@
 				TargetAttributes = {
 					2ED777821DB2657C0037361B = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 6WUSP9L256;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -112,6 +163,12 @@
 			mainGroup = 2ED7777A1DB2657B0037361B;
 			productRefGroup = 2ED777841DB2657C0037361B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2EC6DE431DFD423B00E6F519 /* Products */;
+					ProjectRef = 2EC6DE421DFD423B00E6F519 /* SwiftListViewExample.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2ED777821DB2657C0037361B /* BodyfatCalculator */,
@@ -119,19 +176,50 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		2EC6DE471DFD423B00E6F519 /* SwiftListViewExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftListViewExample.app;
+			remoteRef = 2EC6DE461DFD423B00E6F519 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		2ED777811DB2657C0037361B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2ED021151DB4B48500E55053 /* Info.plist in Resources */,
-				2ED021141DB4B48500E55053 /* Main.storyboard in Resources */,
 				2ED021121DB4B48500E55053 /* Assets.xcassets in Resources */,
 				2ED021131DB4B48500E55053 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E1533CB1DB67EC500FE26E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GCDTimer.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Spring.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MRProgress.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftListView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OpenSansSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2ED7777F1DB2657C0037361B /* Sources */ = {
@@ -152,14 +240,6 @@
 				2ED0210C1DB4B48500E55053 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		2ED0210D1DB4B48500E55053 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2ED0210E1DB4B48500E55053 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -262,6 +342,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6WUSP9L256;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BodyfatCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laex.KetoCalculator;
@@ -274,6 +359,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6WUSP9L256;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BodyfatCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laex.KetoCalculator;

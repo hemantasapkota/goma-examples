@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "629395DD812182DA915CF1CC44EC7621D8D7E0FD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "629395DD812182DA915CF1CC44EC7621D8D7E0FD" : 9223372036854775807,
+    "63E5F74DAD285A49CDD0A6143B2CC79E8CA5CB7F" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "45768A5B-23D3-4BC3-B900-91BC5DBEF0E6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "629395DD812182DA915CF1CC44EC7621D8D7E0FD" : "goma-examples\/",
+    "63E5F74DAD285A49CDD0A6143B2CC79E8CA5CB7F" : "..\/..\/Desktop\/Projects\/OpenLearning\/SwiftListView"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BodyfatCalculator",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "fitness\/fios\/BodyfatCalculator\/BodyfatCalculator.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hemantasapkota\/goma-examples",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "629395DD812182DA915CF1CC44EC7621D8D7E0FD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hemantasapkota\/SwiftListView",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "63E5F74DAD285A49CDD0A6143B2CC79E8CA5CB7F"
+    }
+  ]
+}
