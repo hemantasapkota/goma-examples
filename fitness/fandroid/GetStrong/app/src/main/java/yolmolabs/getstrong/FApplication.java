@@ -13,7 +13,7 @@ public class FApplication extends Application {
     public void onCreate() {
         super.onCreate();
         try {
-            Fandroid.Init(getFilesDir().toString());
+            Fandroid.init(getFilesDir().toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

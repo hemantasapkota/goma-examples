@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"math"
 	"sort"
-	"strconv"
 	"strings"
 
 	"github.com/hemantasapkota/goma"
@@ -184,7 +183,7 @@ func AddNewMeal(timestamp string, description string, calories string, unit stri
 }
 
 func UpdateMeal(id string, description string, calories string) error {
-	cals, err := strconv.ParseFloat(calories, 64)
+	cals, err := NewFormula(calories).Evaluate()
 	if err != nil {
 		return err
 	}

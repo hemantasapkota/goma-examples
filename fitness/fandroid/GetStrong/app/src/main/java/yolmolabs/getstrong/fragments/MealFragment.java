@@ -87,7 +87,7 @@ public class MealFragment extends Fragment {
                 ArrayList<JSONObject> jo = new ArrayList<JSONObject>();
                 JSONArray jarr = null;
                 try {
-                    byte[] data = Fandroid.GetMeals();
+                    byte[] data = Fandroid.getMeals();
                     String json = new String(data, "UTF-8");
                     jarr = new JSONArray(json);
                     for(int i = 0; i < jarr.length(); i++) {
@@ -125,7 +125,7 @@ public class MealFragment extends Fragment {
                             desc.setText(jo.getString("description"));
                             cals.setText(jo.getString("calories"));
 
-                            total.setText(Fandroid.TotalCaloriesByGroup(g));
+                            total.setText(Fandroid.totalCaloriesByGroup(g));
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -165,7 +165,7 @@ public class MealFragment extends Fragment {
                             Task.callInBackground(new Callable<Object>() {
                                 @Override
                                 public Object call() throws Exception {
-                                    Fandroid.DeleteMeal(id);
+                                    Fandroid.deleteMeal(id);
                                     return null;
                                 }
                             }).continueWith(new Continuation<Object, Object>() {
@@ -196,9 +196,9 @@ public class MealFragment extends Fragment {
                                 String unit = caloricUnitList.getSelectedItem().toString();
 
                                 if (id.isEmpty()) {
-                                    Fandroid.AddNewMeal(description, calories, unit);
+                                    Fandroid.addNewMeal(description, calories, unit);
                                 } else {
-                                    Fandroid.UpdateMeal(id, description, calories);
+                                    Fandroid.updateMeal(id, description, calories);
                                 }
 
                                 return null;
@@ -237,7 +237,7 @@ public class MealFragment extends Fragment {
             @Override
             public Object call() throws Exception {
 
-                byte[] data = Fandroid.GetUnits();
+                byte[] data = Fandroid.getUnits();
                 String unitsJson = new String(data, "UTF-8");
 
                 JSONObject jo = new JSONObject(unitsJson);
