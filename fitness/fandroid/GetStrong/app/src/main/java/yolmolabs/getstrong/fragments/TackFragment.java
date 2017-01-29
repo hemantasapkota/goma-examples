@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -26,21 +23,18 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 
 import bolts.Continuation;
 import bolts.Task;
 import go.fandroid.Fandroid;
-import io.nlopez.smartadapters.SmartAdapter;
 import yolmolabs.getstrong.JSONAdapter;
-import yolmolabs.getstrong.MainActivity;
 import yolmolabs.getstrong.MessageUtil;
 import yolmolabs.getstrong.R;
 
 /**
  * Created by hemantasapkota on 26/06/16.
  */
-public class MealFragment extends Fragment {
+public class TackFragment extends Fragment {
 
     private ListView list;
 
@@ -52,13 +46,13 @@ public class MealFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setTitle("Track your meals and workouts");
+        getActivity().setTitle("Track meals, workouts & sleep");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_meal, container, false);
+        View v = inflater.inflate(R.layout.fragment_track, container, false);
 
         list = (ListView) v.findViewById(R.id.listView);
 
@@ -101,7 +95,7 @@ public class MealFragment extends Fragment {
 
                     @Override
                     public int getLayoutID() {
-                        return R.layout.fragment_meal_item;
+                        return R.layout.fragment_track_item;
                     }
 
                     @Override
@@ -154,7 +148,7 @@ public class MealFragment extends Fragment {
 
         MaterialDialog md = new MaterialDialog.Builder(context)
                 .title("Track a meal or workout")
-                .customView(R.layout.dialog_addmeal, true)
+                .customView(R.layout.dialog_addtrack, true)
                 .positiveText("OK")
                 .negativeText(negativeText)
                 .onNegative(new MaterialDialog.SingleButtonCallback() {

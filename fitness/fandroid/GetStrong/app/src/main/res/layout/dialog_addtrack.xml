@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtCalories"
-        android:hint="Calories ( Ex: =1290+500 )" />
+        android:hint="Calories ( Ex: 100*4 )" />
 
     <Spinner
         android:layout_width="match_parent"

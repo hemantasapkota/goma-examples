@@ -14,7 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import yolmolabs.getstrong.fragments.MealFragment;
+import yolmolabs.getstrong.fragments.TackFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (curFragment.getClass() == MealFragment.class) {
-                    ((MealFragment)curFragment).showMealDialog(MainActivity.this, "", "", "");
+                if (curFragment.getClass() == TackFragment.class) {
+                    ((TackFragment)curFragment).showMealDialog(MainActivity.this, "", "", "");
 
 //                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        curFragment = new MealFragment();
+        curFragment = new TackFragment();
         updateFragment();
     }
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_meals) {
-            curFragment = new MealFragment();
+            curFragment = new TackFragment();
             updateFragment();
         }
 
