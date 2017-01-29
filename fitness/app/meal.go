@@ -146,6 +146,10 @@ func EmptyMealContainer() *Meal {
 	return &Meal{Children: make([]MealItem, 0)}
 }
 
+func EmptyWeightLogContainer() *WeightLog {
+	return &WeightLog{Children: make([]WeightLogItem, 0)}
+}
+
 func AddNewMeal(timestamp string, description string, calories string, unit string) (*MealItem, error) {
 	if strings.TrimSpace(description) == "" {
 		return nil, errors.New("Please add a description of the meal.")

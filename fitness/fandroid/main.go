@@ -14,12 +14,20 @@ func AddNewMeal(description string, calories string, unit string) error {
 	return err
 }
 
+func LogWeight(timestamp string, weight string) error {
+	return app.LogWeight(timestamp, weight)
+}
+
 func UpdateMeal(id string, description string, calories string) error {
 	return app.UpdateMeal(id, description, calories)
 }
 
 func GetMeals() ([]byte, error) {
 	return goma.Marshal(app.GetMeals())
+}
+
+func GetWeightLog() ([]byte, error) {
+	return goma.Marshal(app.GetWeightLog())
 }
 
 func DeleteMeal(id string) error {

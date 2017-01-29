@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import yolmolabs.getstrong.fragments.TackFragment;
+import yolmolabs.getstrong.fragments.WeightLogFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,9 +36,13 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 if (curFragment.getClass() == TackFragment.class) {
                     ((TackFragment)curFragment).showMealDialog(MainActivity.this, "", "", "");
-
 //                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
+                }
+
+                if (curFragment.getClass() == WeightLogFragment.class) {
+                    ((WeightLogFragment)curFragment).showInputDialog(MainActivity.this, "");
+
                 }
             }
         });
@@ -97,12 +102,10 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_meals) {
             curFragment = new TackFragment();
             updateFragment();
+        } else if (id == R.id.nav_workout) {
+            curFragment = new WeightLogFragment();
+            updateFragment();
         }
-
-//        else if (id == R.id.nav_workout) {
-//            curFragment = new WorkoutFragment();
-//            updateFragment();
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
