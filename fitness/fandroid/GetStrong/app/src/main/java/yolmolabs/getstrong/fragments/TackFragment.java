@@ -147,7 +147,7 @@ public class TackFragment extends Fragment {
         final String neg = negativeText;
 
         MaterialDialog md = new MaterialDialog.Builder(context)
-                .title("Track a meal or workout")
+                .title("Track here")
                 .customView(R.layout.dialog_addtrack, true)
                 .positiveText("OK")
                 .negativeText(negativeText)
