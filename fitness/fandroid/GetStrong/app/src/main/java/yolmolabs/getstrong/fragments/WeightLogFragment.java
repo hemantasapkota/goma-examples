@@ -85,9 +85,6 @@ public class WeightLogFragment extends Fragment {
                      @Override
                      public void bind(JSONObject jo, int position, View convertView, ViewGroup parent) {
                          final TextView weightTxt = (TextView) convertView.findViewById(R.id.txtWeight);
-
-                         Log.d("YOLMO", "Are we here ?");
-
                          try {
                              weightTxt.setText(jo.getString("weight"));
                          } catch (Exception e) {

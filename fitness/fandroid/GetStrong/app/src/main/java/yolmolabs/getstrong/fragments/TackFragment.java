@@ -62,7 +62,7 @@ public class TackFragment extends Fragment {
                 JSONObject jo = (JSONObject) parent.getItemAtPosition(position);
 
                 try {
-                    showMealDialog(getContext(), jo.getString("timestamp"), jo.getString("description"), jo.getString("calories"));
+                    showDialog(getContext(), jo.getString("timestamp"), jo.getString("description"), jo.getString("calories"));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -138,7 +138,7 @@ public class TackFragment extends Fragment {
         }, Task.UI_THREAD_EXECUTOR);
     }
 
-    public void showMealDialog(final Context context, final String id, final String desc, final String calories) {
+    public void showDialog(final Context context, final String id, final String desc, final String value) {
         String negativeText = "Cancel";
         if (!id.isEmpty()) {
             negativeText = "Delete";
@@ -182,12 +182,12 @@ public class TackFragment extends Fragment {
                             @Override
                             public Object call() throws Exception {
                                 EditText descTxt = (EditText) d.getCustomView().findViewById(R.id.txtDescription);
-                                EditText caloriesTxt = (EditText) d.getCustomView().findViewById(R.id.txtCalories);
-                                Spinner caloricUnitList = (Spinner) d.getCustomView().findViewById(R.id.listCaloricUnit);
+                                EditText valueTxt = (EditText) d.getCustomView().findViewById(R.id.txtValue);
+                                Spinner valueUnitList = (Spinner) d.getCustomView().findViewById(R.id.listUnits);
 
                                 String description = descTxt.getText().toString();
-                                String calories = caloriesTxt.getText().toString();
-                                String unit = caloricUnitList.getSelectedItem().toString();
+                                String calories = valueTxt.getText().toString();
+                                String unit = valueUnitList.getSelectedItem().toString();
 
                                 if (id.isEmpty()) {
                                     Fandroid.addNewMeal(description, calories, unit);
@@ -205,7 +205,7 @@ public class TackFragment extends Fragment {
                                     MessageUtil.showError(context, e.getMessage()).onAny(new MaterialDialog.SingleButtonCallback() {
                                         @Override
                                         public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                            showMealDialog(context, id, desc, calories);
+                                            showDialog(context, id, desc, value);
                                         }
                                     }).show();
                                 } else {
@@ -221,9 +221,9 @@ public class TackFragment extends Fragment {
         View d = md.getCustomView();
 
         EditText descTxt = (EditText) d.findViewById(R.id.txtDescription);
-        EditText caloriesTxt = (EditText) d.findViewById(R.id.txtCalories);
+        EditText valueTxt = (EditText) d.findViewById(R.id.txtValue);
 
-        final Spinner listCaloricUnit = (Spinner) d.findViewById(R.id.listCaloricUnit);
+        final Spinner listUnits = (Spinner) d.findViewById(R.id.listUnits);
 
         final ArrayAdapter<String> units = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1);
 
@@ -246,13 +246,13 @@ public class TackFragment extends Fragment {
         }).continueWith(new Continuation<Object, Object>() {
             @Override
             public Object then(Task<Object> task) throws Exception {
-                listCaloricUnit.setAdapter(units);
+                listUnits.setAdapter(units);
                 return null;
             }
         }, Task.UI_THREAD_EXECUTOR);
 
         descTxt.setText(desc);
-        caloriesTxt.setText(calories);
+        valueTxt.setText(value);
     }
 
 }

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 if (curFragment.getClass() == TackFragment.class) {
-                    ((TackFragment)curFragment).showMealDialog(MainActivity.this, "", "", "");
+                    ((TackFragment)curFragment).showDialog(MainActivity.this, "", "", "");
 //                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
                 }

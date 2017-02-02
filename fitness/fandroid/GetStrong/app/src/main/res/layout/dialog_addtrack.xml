@@ -12,12 +12,17 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtCalories"
-        android:hint="Calories ( Ex: 100*4 )" />
+        android:id="@+id/txtValue"
+        android:hint="Value ( Ex: 100*4 )" />
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listCaloricUnit" />
+        android:id="@+id/listUnits" />
+
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker2" />
 
 </LinearLayout>
