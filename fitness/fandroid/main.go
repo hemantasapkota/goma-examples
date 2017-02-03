@@ -14,8 +14,8 @@ func AddNewRecord(timestamp string, description string, value string, unit strin
 	return err
 }
 
-func UpdateRecord(id string, newTimestamp string, description string, calories string) error {
-	return app.UpdateRecord(id, newTimestamp, description, calories)
+func UpdateRecord(prevTimestamp string, newTimestamp string, description string, value string) error {
+	return app.UpdateRecord(prevTimestamp, newTimestamp, description, value)
 }
 
 func GetRecords() ([]byte, error) {
@@ -32,4 +32,8 @@ func TotalCaloriesByGroup(groupName string) string {
 
 func GetUnits() ([]byte, error) {
 	return goma.Marshal(app.GetUnits())
+}
+
+func IndexOfUnit(value string) int {
+	return app.IndexOfUnit(value)
 }

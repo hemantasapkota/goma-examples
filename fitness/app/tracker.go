@@ -3,7 +3,6 @@ package app
 import (
 	"errors"
 	"fmt"
-	"math"
 	"sort"
 	"strings"
 
@@ -146,7 +145,7 @@ func EmptyTrackerContainer() *Tracker {
 
 func AddNewRecord(timestamp string, description string, value string, unit string) (*Record, error) {
 	if strings.TrimSpace(description) == "" {
-		return nil, errors.New("Please add a description of the meal.")
+		return nil, errors.New("Please add a description of the record.")
 	}
 
 	if strings.TrimSpace(value) == "" {
@@ -168,7 +167,7 @@ func AddNewRecord(timestamp string, description string, value string, unit strin
 	item := Record{
 		Timestamp:   timestamp,
 		Description: description,
-		Value:       math.Ceil(val),
+		Value:       val,
 		Unit:        unit,
 	}
 
@@ -182,7 +181,17 @@ func AddNewRecord(timestamp string, description string, value string, unit strin
 	return &item, nil
 }
 
-func UpdateRecord(id string, newtimestamp string, description string, value string) error {
+func UpdateRecord(prevTimestamp string, newtimestamp string, description string, value string) error {
+	if strings.TrimSpace(description) == "" {
+		return errors.New("Please add a description of the record.")
+	}
+
+	if strings.TrimSpace(value) == "" {
+		return errors.New("Value cannot be empty.")
+	}
+
+	println(value)
+
 	val, err := NewFormula(value).Evaluate()
 	if err != nil {
 		return err
@@ -191,7 +200,7 @@ func UpdateRecord(id string, newtimestamp string, description string, value stri
 	tracker := goma.GetAppCache().Get(EmptyTrackerContainer()).(*Tracker)
 
 	for i := 0; i < len(tracker.Children); i++ {
-		if tracker.Children[i].Timestamp == id {
+		if tracker.Children[i].Timestamp == prevTimestamp {
 			mi := tracker.Children[i]
 			mi.Timestamp = newtimestamp
 			mi.Description = description

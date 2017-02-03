@@ -1,10 +1,12 @@
 package yolmolabs.getstrong.fragments;
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,16 +22,21 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 
 import bolts.Continuation;
 import bolts.Task;
 import go.fandroid.Fandroid;
+import hirondelle.date4j.DateTime;
 import yolmolabs.getstrong.JSONAdapter;
 import yolmolabs.getstrong.AppUtil;
 import yolmolabs.getstrong.R;
@@ -38,6 +45,10 @@ import yolmolabs.getstrong.R;
  * Created by hemantasapkota on 26/06/16.
  */
 public class TackFragment extends Fragment {
+
+    public enum OpType {
+        New, Update, Copy, Delete
+    }
 
     private ListView list;
 
@@ -59,13 +70,25 @@ public class TackFragment extends Fragment {
 
         list = (ListView) v.findViewById(R.id.listView);
 
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                JSONObject jo = (JSONObject) parent.getItemAtPosition(position);
+                try {
+                    showDialog(getContext(), jo, OpType.Copy);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return true;
+            }
+        });
+
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 JSONObject jo = (JSONObject) parent.getItemAtPosition(position);
-
                 try {
-                    showDialog(getContext(), jo.getString("timestamp"), jo.getString("description"), jo.getString("value"));
+                    showDialog(getContext(), jo, OpType.Update);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -95,7 +118,6 @@ public class TackFragment extends Fragment {
                 }
 
                 JSONAdapter ja = new JSONAdapter(getContext(), jo) {
-
                     @Override
                     public int getLayoutID() {
                         return R.layout.fragment_track_item;
@@ -141,9 +163,11 @@ public class TackFragment extends Fragment {
         }, Task.UI_THREAD_EXECUTOR);
     }
 
-    public void showDialog(final Context context, final String id, final String desc, final String value) {
+    public void showDialog(final Context context, final JSONObject jo, final OpType op) throws JSONException {
         String negativeText = "Cancel";
-        if (!id.isEmpty()) {
+
+        // Give the option of deleting on record on update mode
+        if (op == OpType.Update) {
             negativeText = "Delete";
         }
 
@@ -158,21 +182,12 @@ public class TackFragment extends Fragment {
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                         if (neg.equals("Delete")) {
-
-                            Task.callInBackground(new Callable<Object>() {
-                                @Override
-                                public Object call() throws Exception {
-                                    Fandroid.deleteRecord(id);
-                                    return null;
-                                }
-                            }).continueWith(new Continuation<Object, Object>() {
-                                @Override
-                                public Object then(Task<Object> task) throws Exception {
-                                    loadData();
-                                    return null;
-                                }
-                            }, Task.UI_THREAD_EXECUTOR);
-
+                            try {
+                                final String id = jo.getString("timestamp");
+                                deleteRecord(id);
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
                         }
                     }
                 })
@@ -184,25 +199,15 @@ public class TackFragment extends Fragment {
                         Task.callInBackground(new Callable<Object>() {
                             @Override
                             public Object call() throws Exception {
-                                EditText descTxt = (EditText) d.getCustomView().findViewById(R.id.txtDescription);
-                                EditText valueTxt = (EditText) d.getCustomView().findViewById(R.id.txtValue);
-                                Spinner valueUnitList = (Spinner) d.getCustomView().findViewById(R.id.listUnits);
-                                final DatePicker dp = (DatePicker) d.getCustomView().findViewById(R.id.datePicker);
 
-                                String description = descTxt.getText().toString();
-                                String calories = valueTxt.getText().toString();
-                                String unit = valueUnitList.getSelectedItem().toString();
-
-                                Date date = AppUtil.getDateFromDatePicker(dp);
-                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
-                                String timestamp = sdf.format(date);
-
-                                if (id.isEmpty()) {
-                                    Fandroid.addNewRecord(timestamp, description, calories, unit);
-                                } else {
-                                    Fandroid.updateRecord(id, timestamp, description, calories);
+                                String prevTimestamp = "";
+                                try {
+                                    prevTimestamp = jo.getString("timestamp");
+                                } catch (Exception ex) {
+                                    ex.printStackTrace();
                                 }
 
+                                addRecord(d, op, prevTimestamp);
                                 return null;
                             }
                         }).continueWith(new Continuation<Object, Object>() {
@@ -213,7 +218,11 @@ public class TackFragment extends Fragment {
                                     AppUtil.showError(context, e.getMessage()).onAny(new MaterialDialog.SingleButtonCallback() {
                                         @Override
                                         public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                                            showDialog(context, id, desc, value);
+                                            try {
+                                                showDialog(context, jo, op);
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
                                         }
                                     }).show();
                                 } else {
@@ -230,12 +239,50 @@ public class TackFragment extends Fragment {
 
         EditText descTxt = (EditText) d.findViewById(R.id.txtDescription);
         EditText valueTxt = (EditText) d.findViewById(R.id.txtValue);
-
         final Spinner listUnits = (Spinner) d.findViewById(R.id.listUnits);
+        DatePicker datePicker = (DatePicker) d.findViewById(R.id.datePicker);
+
+        // Update date
+        try {
+            String timestamp = jo.getString("timestamp");
+            DateTime dt = new DateTime(timestamp);
+            datePicker.updateDate(dt.getYear(), dt.getMonth(), dt.getDay());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        // description
+        try {
+            final String description = jo.getString("description");
+            descTxt.setText(description);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        // Value
+        try {
+            final String value = jo.getString("value");
+            valueTxt.setText(value);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        // Populate and update list of units
+        int selectedUnit = -1;
+        try {
+            final String unit = jo.getString("unit");
+            selectedUnit = (int) Fandroid.indexOfUnit(unit);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        populateUnits(context, listUnits, selectedUnit);
+    }
+
+    public void populateUnits(Context context, final Spinner listUnits, final int selected) {
 
         final ArrayAdapter<String> units = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1);
 
-        Task.callInBackground(new Callable<Object>() {
+         Task.callInBackground(new Callable<Object>() {
             @Override
             public Object call() throws Exception {
 
@@ -255,12 +302,54 @@ public class TackFragment extends Fragment {
             @Override
             public Object then(Task<Object> task) throws Exception {
                 listUnits.setAdapter(units);
+                listUnits.setSelection(selected);
                 return null;
             }
         }, Task.UI_THREAD_EXECUTOR);
+    }
 
-        descTxt.setText(desc);
-        valueTxt.setText(value);
+    public void addRecord(final MaterialDialog d, OpType op, String prevTimestamp) throws Exception {
+        EditText descTxt = (EditText) d.getCustomView().findViewById(R.id.txtDescription);
+        EditText valueTxt = (EditText) d.getCustomView().findViewById(R.id.txtValue);
+        Spinner valueUnitList = (Spinner) d.getCustomView().findViewById(R.id.listUnits);
+        final DatePicker dp = (DatePicker) d.getCustomView().findViewById(R.id.datePicker);
+
+        String description = descTxt.getText().toString();
+        String value = valueTxt.getText().toString();
+        String unit = valueUnitList.getSelectedItem().toString();
+
+        Date date = AppUtil.getDateFromDatePicker(dp);
+        String timestamp = AppUtil.dateFormat.format(date);
+
+        switch (op) {
+            case New:
+                Fandroid.addNewRecord(timestamp, description, value, unit);
+                break;
+
+            case Update:
+                Fandroid.updateRecord(prevTimestamp, timestamp, description, value);
+                break;
+
+            case Copy:
+                Fandroid.addNewRecord(timestamp, description, value, unit);
+                break;
+        }
+    }
+
+    public void deleteRecord(final String id) {
+        Task.callInBackground(new Callable<Object>() {
+            @Override
+            public Object call() throws Exception {
+                Fandroid.deleteRecord(id);
+                return null;
+            }
+        }).continueWith(new Continuation<Object, Object>() {
+            @Override
+            public Object then(Task<Object> task) throws Exception {
+                loadData();
+                return null;
+            }
+        }, Task.UI_THREAD_EXECUTOR);
     }
 
 }

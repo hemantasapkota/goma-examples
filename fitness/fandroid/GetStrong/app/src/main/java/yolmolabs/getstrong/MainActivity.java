@@ -14,6 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONObject;
+
 import yolmolabs.getstrong.fragments.TackFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -34,11 +36,12 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 if (curFragment.getClass() == TackFragment.class) {
-                    ((TackFragment)curFragment).showDialog(MainActivity.this, "", "", "");
-//                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+                    try {
+                        ((TackFragment)curFragment).showDialog(MainActivity.this, new JSONObject(), TackFragment.OpType.New);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
                 }
-
             }
         });
 
