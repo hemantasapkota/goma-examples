@@ -15,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import yolmolabs.getstrong.fragments.TackFragment;
-import yolmolabs.getstrong.fragments.WeightLogFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,10 +39,6 @@ public class MainActivity extends AppCompatActivity
 //                        .setAction("Action", null).show();
                 }
 
-                if (curFragment.getClass() == WeightLogFragment.class) {
-                    ((WeightLogFragment)curFragment).showInputDialog(MainActivity.this, "");
-
-                }
             }
         });
 
@@ -101,9 +96,6 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_meals) {
             curFragment = new TackFragment();
-            updateFragment();
-        } else if (id == R.id.nav_workout) {
-            curFragment = new WeightLogFragment();
             updateFragment();
         }
 

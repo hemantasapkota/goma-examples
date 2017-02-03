@@ -9,29 +9,21 @@ func Init(dbPath string) error {
 	return app.Init(dbPath)
 }
 
-func AddNewMeal(description string, calories string, unit string) error {
-	_, err := app.AddNewMeal(goma.Timestamp(), description, calories, unit)
+func AddNewRecord(timestamp string, description string, value string, unit string) error {
+	_, err := app.AddNewRecord(timestamp, description, value, unit)
 	return err
 }
 
-func LogWeight(timestamp string, weight string) error {
-	return app.LogWeight(timestamp, weight)
+func UpdateRecord(id string, newTimestamp string, description string, calories string) error {
+	return app.UpdateRecord(id, newTimestamp, description, calories)
 }
 
-func UpdateMeal(id string, description string, calories string) error {
-	return app.UpdateMeal(id, description, calories)
+func GetRecords() ([]byte, error) {
+	return goma.Marshal(app.GetRecords())
 }
 
-func GetMeals() ([]byte, error) {
-	return goma.Marshal(app.GetMeals())
-}
-
-func GetWeightLog() ([]byte, error) {
-	return goma.Marshal(app.GetWeightLog())
-}
-
-func DeleteMeal(id string) error {
-	return app.DeleteMeal(id)
+func DeleteRecord(id string) error {
+	return app.DeleteRecord(id)
 }
 
 func TotalCaloriesByGroup(groupName string) string {

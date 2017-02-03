@@ -15,14 +15,29 @@
         android:id="@+id/txtValue"
         android:hint="Value ( Ex: 100*4 )" />
 
-    <Spinner
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listUnits" />
+        android:layout_height="36dp"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:text="Unit"
+            android:layout_width="63dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listUnits"
+            android:layout_weight="1" />
+    </LinearLayout>
 
     <DatePicker
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/datePicker2" />
+        android:id="@+id/datePicker" />
 
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -21,7 +22,9 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.Callable;
 
 import bolts.Continuation;
@@ -62,7 +65,7 @@ public class TackFragment extends Fragment {
                 JSONObject jo = (JSONObject) parent.getItemAtPosition(position);
 
                 try {
-                    showDialog(getContext(), jo.getString("timestamp"), jo.getString("description"), jo.getString("calories"));
+                    showDialog(getContext(), jo.getString("timestamp"), jo.getString("description"), jo.getString("value"));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -81,7 +84,7 @@ public class TackFragment extends Fragment {
                 ArrayList<JSONObject> jo = new ArrayList<JSONObject>();
                 JSONArray jarr = null;
                 try {
-                    byte[] data = Fandroid.getMeals();
+                    byte[] data = Fandroid.getRecords();
                     String json = new String(data, "UTF-8");
                     jarr = new JSONArray(json);
                     for(int i = 0; i < jarr.length(); i++) {
@@ -102,7 +105,7 @@ public class TackFragment extends Fragment {
                     public void bind(JSONObject jo, int position, View convertView, ViewGroup parent) {
                         final TextView date = (TextView) convertView.findViewById(R.id.txtDate);
                         final TextView desc = (TextView) convertView.findViewById(R.id.txtDescription);
-                        final TextView cals = (TextView) convertView.findViewById(R.id.txtCalories);
+                        final TextView value = (TextView) convertView.findViewById(R.id.txtValue);
                         final TextView total = (TextView) convertView.findViewById(R.id.txtTotal);
 
                         View groupView = convertView.findViewById(R.id.groupView);
@@ -117,7 +120,7 @@ public class TackFragment extends Fragment {
                             }
 
                             desc.setText(jo.getString("description"));
-                            cals.setText(jo.getString("calories"));
+                            value.setText(jo.getString("value"));
 
                             total.setText(Fandroid.totalCaloriesByGroup(g));
 
@@ -159,7 +162,7 @@ public class TackFragment extends Fragment {
                             Task.callInBackground(new Callable<Object>() {
                                 @Override
                                 public Object call() throws Exception {
-                                    Fandroid.deleteMeal(id);
+                                    Fandroid.deleteRecord(id);
                                     return null;
                                 }
                             }).continueWith(new Continuation<Object, Object>() {
@@ -184,15 +187,19 @@ public class TackFragment extends Fragment {
                                 EditText descTxt = (EditText) d.getCustomView().findViewById(R.id.txtDescription);
                                 EditText valueTxt = (EditText) d.getCustomView().findViewById(R.id.txtValue);
                                 Spinner valueUnitList = (Spinner) d.getCustomView().findViewById(R.id.listUnits);
+                                final DatePicker dp = (DatePicker) d.getCustomView().findViewById(R.id.datePicker);
 
                                 String description = descTxt.getText().toString();
                                 String calories = valueTxt.getText().toString();
                                 String unit = valueUnitList.getSelectedItem().toString();
 
+                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+                                final String timestamp = sdf.format(new Date(dp.getYear(), dp.getMonth(), dp.getDayOfMonth()));
+
                                 if (id.isEmpty()) {
-                                    Fandroid.addNewMeal(description, calories, unit);
+                                    Fandroid.addNewRecord(timestamp, description, calories, unit);
                                 } else {
-                                    Fandroid.updateMeal(id, description, calories);
+                                    Fandroid.updateRecord(id, timestamp, description, calories);
                                 }
 
                                 return null;
