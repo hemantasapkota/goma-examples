@@ -36,6 +36,8 @@ dependencies {
 
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 
+    compile 'net.danlew:android.joda:2.9.5.1'
+
     compile 'com.wdullaer:materialdatetimepicker:2.3.0'
     compile 'io.nlopez.smartadapters:library:1.3.1'
 

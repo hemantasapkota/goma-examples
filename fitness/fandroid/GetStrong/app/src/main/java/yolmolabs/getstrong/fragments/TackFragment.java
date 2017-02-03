@@ -31,7 +31,7 @@ import bolts.Continuation;
 import bolts.Task;
 import go.fandroid.Fandroid;
 import yolmolabs.getstrong.JSONAdapter;
-import yolmolabs.getstrong.MessageUtil;
+import yolmolabs.getstrong.AppUtil;
 import yolmolabs.getstrong.R;
 
 /**
@@ -193,8 +193,9 @@ public class TackFragment extends Fragment {
                                 String calories = valueTxt.getText().toString();
                                 String unit = valueUnitList.getSelectedItem().toString();
 
-                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
-                                final String timestamp = sdf.format(new Date(dp.getYear(), dp.getMonth(), dp.getDayOfMonth()));
+                                Date date = AppUtil.getDateFromDatePicker(dp);
+                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
+                                String timestamp = sdf.format(date);
 
                                 if (id.isEmpty()) {
                                     Fandroid.addNewRecord(timestamp, description, calories, unit);
@@ -209,7 +210,7 @@ public class TackFragment extends Fragment {
                             public Object then(Task<Object> task) throws Exception {
                                 Exception e = task.getError();
                                 if ( e != null) {
-                                    MessageUtil.showError(context, e.getMessage()).onAny(new MaterialDialog.SingleButtonCallback() {
+                                    AppUtil.showError(context, e.getMessage()).onAny(new MaterialDialog.SingleButtonCallback() {
                                         @Override
                                         public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                                             showDialog(context, id, desc, value);
